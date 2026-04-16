@@ -1,0 +1,47 @@
+# Kerma example: nuclear physics calculations
+# Demonstrates units, constants, functions, and control flow
+
+# === Rest mass energies ===
+print m_e * c**2 | MeV
+print m_p * c**2 | MeV
+print m_n * c**2 | MeV
+
+# === Photon attenuation ===
+def attenuate(I0, mu, x):
+    return I0 * exp(-mu * x)
+
+# Co-60 through 50 cm concrete
+I_out = attenuate(1000, 0.0547, 50)
+print I_out
+
+# === De Broglie wavelength ===
+def de_broglie(E_kinetic, mass):
+    p = sqrt(2 * mass * E_kinetic)
+    return h / p
+
+# 1 eV thermal neutron
+E_th = 0.0253 eV
+lambda_n = de_broglie(E_th, m_n)
+print lambda_n | Å
+
+# === Activity calculation ===
+def activity(N, half_life):
+    lambda_ = log(2) / half_life
+    return N * lambda_
+
+# Co-60 source: 1e15 atoms, t½ = 5.2714 yr
+A = activity(1e15, 5.2714 yr)
+print A | Bq
+
+# === Quadratic formula ===
+def quadratic(a, b, discriminant):
+    return (-b + sqrt(discriminant)) / (2 * a)
+
+# Solve x² - 5x + 6 = 0
+a = 1
+b = -5
+disc = b**2 - 4*a*6
+x1 = quadratic(a, b, disc)
+x2 = (-b - sqrt(disc)) / (2*a)
+print x1
+print x2

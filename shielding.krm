@@ -1,0 +1,40 @@
+# Kerma example: photon attenuation through concrete
+# Models I = I₀ · exp(-μx) for Co-60 gammas
+
+# Source
+E1 = 1.173 MeV
+E2 = 1.332 MeV
+I0 = 1000
+
+# Concrete linear attenuation coefficients (cm⁻¹)
+mu1 = 0.0570
+mu2 = 0.0524
+
+# Shielding thickness
+x = 100
+
+# Attenuated intensities
+I1 = I0 * exp(-mu1 * x)
+I2 = I0 * exp(-mu2 * x)
+
+print I1
+print I2
+
+# Total
+I_total = I1 + I2
+print I_total
+
+# Tenth-value layer
+TVL1 = log(10) / mu1
+TVL2 = log(10) / mu2
+print TVL1
+print TVL2
+
+# Rest mass energy check
+E_rest = m_e * c**2
+print E_rest | MeV
+
+# Decay constant for Co-60
+t_half = 5.2714 yr
+lambda_ = log(2) / t_half
+print lambda_

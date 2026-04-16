@@ -28,7 +28,7 @@ Three ways to work:
 ### Installation
 
 ```bash
-git clone https://github.com/<your-drgtheneutrino>/Kerma.git
+git clone https://github.com/<drgtheneutrino>/Kerma-V3.git
 cd Kerma
 python setup_kerma.py
 ```

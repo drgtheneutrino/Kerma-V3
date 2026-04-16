@@ -28,8 +28,8 @@ Three ways to work:
 ### Installation
 
 ```bash
-git clone https://github.com/<drgtheneutrino>/Kerma-V3.git
-cd Kerma
+git clone https://github.com/drgtheneutrino/Kerma-V3.git
+cd Kerma-V3
 python setup_kerma.py
 ```
 
